@@ -46,7 +46,7 @@ sha256sum 文件名
 
 ### ★ 官方链接失效了怎么办 —— 离线包
 
-**上面所有工具与镜像的本体，都已存进本仓库的一个 release**，不再依赖第三方链接是否还活着：
+**本项目用到的全部文件 —— 包括 2.2 GB 的官方固件 —— 都已归档进本仓库的一个 release**，不再依赖第三方链接是否还活着：
 
 # **https://github.com/huntina6/nubia-z17s-root-guide/releases/tag/offline-tools-v1**
 
@@ -57,10 +57,40 @@ sha256sum 文件名
 | `usb_driver_r13-windows.zip` | 8,682,039 | [下载](https://github.com/huntina6/nubia-z17s-root-guide/releases/download/offline-tools-v1/usb_driver_r13-windows.zip) |
 | `twrp_recovery_3.7.0_9_for_nx595j-new-partitions-20221116.img` | 33,805,612 | [下载](https://github.com/huntina6/nubia-z17s-root-guide/releases/download/offline-tools-v1/twrp_recovery_3.7.0_9_for_nx595j-new-partitions-20221116.img) |
 | `Magisk-v26.4.apk` | 12,526,383 | [下载](https://github.com/huntina6/nubia-z17s-root-guide/releases/download/offline-tools-v1/Magisk-v26.4.apk) |
+| `twrp_recovery_3.7.0_13_for_nx595j-fbe.img` | 39,068,972 | [下载](https://github.com/huntina6/nubia-z17s-root-guide/releases/download/offline-tools-v1/twrp_recovery_3.7.0_13_for_nx595j-fbe.img) |
+| `NX595J_Z69_EN_VNG0N_V112.zip.part1.rar` | 1,258,291,200 | [下载](https://github.com/huntina6/nubia-z17s-root-guide/releases/download/offline-tools-v1/NX595J_Z69_EN_VNG0N_V112.zip.part1.rar) |
+| `NX595J_Z69_EN_VNG0N_V112.zip.part2.rar` | 1,117,718,202 | [下载](https://github.com/huntina6/nubia-z17s-root-guide/releases/download/offline-tools-v1/NX595J_Z69_EN_VNG0N_V112.zip.part2.rar) |
 
-各文件 SHA256 见下文分项说明，release 页面的说明正文里也完整列了一份。
+**全部文件的 SHA256：**
 
-> ⚠️ **固件包（V112 / V111）没能收进离线包。** `NX595J_Z69_EN_VNG0N_V112.zip` 是 **2,376,008,975 字节（2.21 GiB）**，超过 GitHub release 单个附件 **2 GiB 的硬上限**，放不进去。这一项只能继续依赖努比亚官方服务器，下载后务必核对字节数是否等于 `2376008975`。
+```
+45F4D63113E895EBDE0C90F194099A4676B6AC653BD28D54314A9E022BBC1A99  platform-tools-latest-windows.zip
+6A721560633BABEBC74F9330D7184A23D74D18B835CC769F81BBF977575B3800  platform-tools_r28.0.2-windows.zip
+360B01D3DFB6C41621A3A64AE570DFAC2C9A40CCA1B5A1F136AE90D02F5E9E0B  usb_driver_r13-windows.zip
+1BADBC96BCF169D0DB89167D3520F5D78F9B21A427754DED937A47184C197010  twrp_recovery_3.7.0_9_for_nx595j-new-partitions-20221116.img
+A2818E8B0E6FC0C4467808996B0885F1B231BD4CF03A3D0D7416AA9C7BC0A410  twrp_recovery_3.7.0_13_for_nx595j-fbe.img
+543A96FE26C012D99BAF3A3AA5A97B80508D67CC641AF7C12CE9F7B226B2B889  Magisk-v26.4.apk
+F823A20E74666AF35ED43FFCC70E0ED0BB7BD4A198F3E929CA5CEADA41D79A6F  NX595J_Z69_EN_VNG0N_V112.zip.part1.rar
+0DB70C82AE37B52B291827ED29632D7A0CF4A391A868598BE4A6B41436666F0E  NX595J_Z69_EN_VNG0N_V112.zip.part2.rar
+```
+
+**固件解压后**（`NX595J_Z69_EN_VNG0N_V112.zip`，2,376,008,975 字节）的 SHA256：
+
+```
+F75E8CC068B5D7D2503B39E07E72BBD28A34375D6BD2DFBB7217CAB639F69058
+```
+
+### 官方固件为什么是分卷的 —— 用法说明
+
+固件原文件 **2,376,008,975 字节（2.21 GiB）**，**超过 GitHub 单个附件 2 GiB 的硬上限**，无法作为单个附件上传，所以按 **1200 MB** 切成两卷归档（RAR 存储模式，无压缩，不损失内容）。
+
+**用法：两卷都下齐，放在同一个文件夹里，解压任意一卷即可**得到完整的 zip：
+
+- **图形界面**：用 WinRAR / 7-Zip / Bandizip 打开 `NX595J_Z69_EN_VNG0N_V112.zip.part1.rar` → 解压 → 得到 `NX595J_Z69_EN_VNG0N_V112.zip`
+- **命令行（Windows）**：`"C:\Program Files\WinRAR\rar.exe" x NX595J_Z69_EN_VNG0N_V112.zip.part1.rar`
+- **命令行（Linux / macOS）**：`unrar x NX595J_Z69_EN_VNG0N_V112.zip.part1.rar`（或 `7z x`）
+
+解出来的文件必须**正好是 2,376,008,975 字节**，SHA256 等于上面那串 —— 两者都对上，才是完好的官方固件。
 
 ---
 
@@ -192,11 +222,15 @@ sha256sum 文件名
 
 > ⚠️ **型号必须完全匹配。** 努比亚 Z17 / Z17 mini / Z17s 的固件包互不兼容，刷错轻则无限重启、重则彻底黑砖。认准文件名里的 `NX595J`。
 
-**下载完成后一定要核对字节数**（官方未公布校验值，用字节数代替）：
+**下载完成后一定要核对字节数和 SHA256**（官方没有公布校验值，下面两个值是本次实测算出来的，可作为唯一基准）：
 
 ```powershell
-(Get-Item .\NX595J_Z69_EN_VNG0N_V112.zip).Length   # 应等于 2376008975
+(Get-Item .\NX595J_Z69_EN_VNG0N_V112.zip).Length              # 应等于 2376008975
+(Get-FileHash .\NX595J_Z69_EN_VNG0N_V112.zip -Algorithm SHA256).Hash
+# 应等于 F75E8CC068B5D7D2503B39E07E72BBD28A34375D6BD2DFBB7217CAB639F69058
 ```
+
+> **官方链接失效时**，用本文档开头的[离线包](#-官方链接失效了怎么办--离线包) —— 该固件已按 1200 MB 切成两卷（`...V112.zip.part1.rar` / `...part2.rar`）归档在同一个 release 里，解压后同样要做上面这两项核对。
 
 ---
 
