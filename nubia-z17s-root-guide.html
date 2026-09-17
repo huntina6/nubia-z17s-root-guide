@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>nubia Z17s (NX595J) Root 操作手册</title>
+<style>
+:root{
+  --bg:#f1f2f4;--card:#ffffff;--text:#191c1f;--muted:#6b7280;
+  --border:#e4e7eb;--soft:#f7f8fa;--accent:#2563eb;--accent-soft:#eef4ff;
+  --danger:#c81e1e;--danger-soft:#fdf2f2;--warn:#a35c07;--warn-soft:#fffaf0;
+  --ok:#12703a;--ok-soft:#f0faf4;
+}
+*{box-sizing:border-box}
+body{
+  margin:0;padding:36px 18px 90px;background:var(--bg);color:var(--text);
+  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","Microsoft YaHei",sans-serif;
+  font-size:15px;line-height:1.75;-webkit-font-smoothing:antialiased;
+}
+.wrap{max-width:860px;margin:0 auto}
+.dev-head{display:flex;flex-wrap:wrap;align-items:baseline;gap:12px;margin-bottom:6px}
+.dev-head h1{font-size:26px;font-weight:600;margin:0;letter-spacing:-.3px}
+.tag{font-size:12px;font-weight:500;padding:3px 10px;border-radius:99px;background:var(--accent-soft);color:var(--accent);border:1px solid #d7e4fe}
+.sub{color:var(--muted);font-size:14px;margin:0 0 26px}
+.lede{background:var(--card);border:1px solid var(--border);border-left:3px solid var(--accent);border-radius:10px;padding:18px 22px;margin-bottom:26px}
+.lede p{margin:0}
+.lede strong{color:var(--accent)}
+.card{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:26px 28px;margin-bottom:18px}
+h2{font-size:18px;font-weight:600;margin:0 0 4px;display:flex;align-items:center;gap:11px;letter-spacing:-.2px}
+h2 .n{flex:none;width:26px;height:26px;border-radius:8px;background:var(--accent);color:#fff;font-size:13px;font-weight:600;display:flex;align-items:center;justify-content:center}
+h2.danger .n{background:var(--danger)}
+h2.warn .n{background:var(--warn)}
+h2.ok .n{background:var(--ok)}
+h2.plain .n{background:#9aa3ae}
+.h2sub{color:var(--muted);font-size:13.5px;margin:0 0 20px 37px}
+h3{font-size:14.5px;font-weight:600;margin:24px 0 10px}
+h3:first-of-type{margin-top:6px}
+p{margin:0 0 12px}
+ul,ol{margin:0 0 12px;padding-left:22px}
+li{margin-bottom:7px}
+li::marker{color:#9aa3ae}
+pre{position:relative;background:var(--soft);border:1px solid var(--border);border-radius:9px;padding:14px 15px;margin:12px 0;overflow-x:auto;font-family:"SFMono-Regular",Consolas,"Liberation Mono",monospace;font-size:13px;line-height:1.65;color:#1c2128}
+pre code{font-family:inherit;white-space:pre}
+.copy{position:absolute;top:8px;right:8px;font:inherit;font-size:11.5px;font-family:-apple-system,"Microsoft YaHei",sans-serif;padding:3px 9px;border-radius:6px;border:1px solid var(--border);background:#fff;color:var(--muted);cursor:pointer;opacity:0;transition:opacity .15s}
+pre:hover .copy{opacity:1}
+.copy:hover{color:var(--accent);border-color:#c3d5fb}
+.box{border-radius:9px;padding:15px 18px;margin:16px 0;font-size:14px}
+.box p:last-child{margin-bottom:0}
+.box b{font-weight:600}
+.r{background:var(--danger-soft);border:1px solid #f5d7d7;border-left:3px solid var(--danger)}
+.r b{color:var(--danger)}
+.w{background:var(--warn-soft);border:1px solid #f4e3c4;border-left:3px solid var(--warn)}
+.w b{color:var(--warn)}
+.g{background:var(--ok-soft);border:1px solid #d3ecdd;border-left:3px solid var(--ok)}
+.g b{color:var(--ok)}
+.k{background:var(--accent-soft);border:1px solid #d7e4fe;border-left:3px solid var(--accent)}
+.k b{color:var(--accent)}
+code.inl{background:#eef1f4;padding:1.5px 6px;border-radius:5px;font-family:Consolas,monospace;font-size:13px;color:#b02a37}
+table{width:100%;border-collapse:collapse;font-size:13.5px;margin:14px 0}
+th,td{border:1px solid var(--border);padding:10px 13px;text-align:left;vertical-align:top}
+th{background:var(--soft);font-weight:600;white-space:nowrap}
+td code{font-family:Consolas,monospace;font-size:12.5px;background:#eef1f4;padding:1px 5px;border-radius:4px}
+.check{list-style:none;padding:0;margin:10px 0}
+.check li{display:flex;gap:11px;align-items:flex-start;margin-bottom:9px;padding:0}
+.check input{margin:5px 0 0;width:16px;height:16px;flex:none;accent-color:var(--accent);cursor:pointer}
+.check label{cursor:pointer;line-height:1.6}
+.check input:checked+label{color:var(--muted);text-decoration:line-through}
+.steps{counter-reset:s;list-style:none;padding:0}
+.steps li{position:relative;padding-left:32px;margin-bottom:12px}
+.steps li:before{counter-increment:s;content:counter(s);position:absolute;left:0;top:2px;width:20px;height:20px;border-radius:50%;background:var(--accent-soft);color:var(--accent);font-size:11.5px;font-weight:600;display:flex;align-items:center;justify-content:center;line-height:1}
+.foot{margin-top:32px;padding-top:20px;border-top:1px solid var(--border);color:var(--muted);font-size:12.5px}
+.foot ol{padding-left:20px}
+.foot li{margin-bottom:5px}
+a{color:var(--accent);text-decoration:none;border-bottom:1px solid #c3d5fb;word-break:break-all}
+a:hover{border-bottom-color:var(--accent)}
+pre .cm{color:#7a8794}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<div class="dev-head">
+  <h1>nubia Z17s Root 操作手册</h1>
+  <span class="tag">NX595J</span>
+</div>
+<p class="sub">骁龙 835 (MSM8998) · Android 7.1.1 / nubia UI 5.1 · 2017 年 10 月上市</p>
+
+<div class="lede">
+  <p><strong>结论：可以 root，难度中等。</strong>这台机器有一条努比亚自己留在 fastboot 里的隐藏解锁命令，<b>不需要向官方申请解锁码</b>，也不需要账号等级或等待期。主要的不确定性有两个：一是 TWRP 的版本适配，二是解锁对指纹类功能的潜在影响。</p>
+</div>
+
+<div class="card">
+  <h2 class="danger"><span class="n">!</span>动手前必读的风险</h2>
+  <p class="h2sub">这几条没有例外，请逐条确认自己能接受</p>
+  <div class="box r">
+    <p><b>1. 解锁 Bootloader 会清空手机里的全部数据。</b>照片、聊天记录、账号、应用数据全部消失，且不可恢复。动手前先把重要文件导出到电脑。</p>
+    <p><b>2. 指纹支付、部分银行 App 可能失效。</b>解锁会让设备无法通过完整性校验，依赖这一机制的功能会拒绝工作。努比亚机型走的是官方自带的解锁命令，指纹硬件本身通常不受损，但指纹支付和金融类 App 的可用性需要你做好心理准备。</p>
+    <p><b>3. 操作失误可能导致无法开机。</b>高通平台可以用 9008 (EDL) 底层模式救回来，但前提是你<b>提前下载好了官方固件包</b>。没有救砖包之前，不要开始刷机。</p>
+  </div>
+  <p>另外两条影响较小的：官方保修失效（这台机器早已过保）、系统 OTA 升级功能失效。</p>
+</div>
+
+<div class="card">
+  <h2 class="plain"><span class="n">0</span>准备清单</h2>
+  <p class="h2sub">动手前把这些都备齐，中途缺东西是最容易出事的</p>
+  <h3>硬件</h3>
+  <ul class="check">
+    <li><input type="checkbox" id="c1"><label for="c1">一台 Windows 电脑</label></li>
+    <li><input type="checkbox" id="c2"><label for="c2">能传数据的 Type-C 数据线（不是纯充电线）</label></li>
+    <li><input type="checkbox" id="c3"><label for="c3">手机电量充到 60% 以上</label></li>
+    <li><input type="checkbox" id="c4"><label for="c4">重要数据已导出到电脑</label></li>
+  </ul>
+  <h3>软件与文件</h3>
+  <ul class="check">
+    <li><input type="checkbox" id="c5"><label for="c5">Google platform-tools（ADB + Fastboot 工具包）</label></li>
+    <li><input type="checkbox" id="c6"><label for="c6">nubia USB 驱动（努比亚官网「下载中心」有单独的 Nubia USB Driver）</label></li>
+    <li><input type="checkbox" id="c7"><label for="c7">TWRP 镜像：<code class="inl">twrp_recovery_3.7.0_9_for_nx595j-new-partitions-20221116.img</code></label></li>
+    <li><input type="checkbox" id="c8"><label for="c8">Magisk 安装包：建议用 v26.4（zip 与 apk 各一份）</label></li>
+    <li><input type="checkbox" id="c9"><label for="c9"><b>Z17s 官方固件包</b>（救砖用，务必备好）</label></li>
+  </ul>
+  <div class="box w">
+    <p><b>关于 TWRP 版本。</b>社区维护的 Z17s TWRP 有两个版本：3.7.0_9 和 3.7.0_13-FBE。后者的说明写着「Decrypt automatically on android 11/12/13 devices」，是给刷了新系统的人用的。你跑的是原厂 7.1.1，先试 3.7.0_9；如果 TWRP 启动异常或触摸失灵，再换 3.7.0_13-FBE 试。</p>
+  </div>
+</div>
+
+<div class="card">
+  <h2 class="plain"><span class="n">1</span>电脑环境</h2>
+  <p class="h2sub">大约 5 分钟</p>
+  <ol class="steps">
+    <li>下载 platform-tools 压缩包，解压到一个<b>纯英文、无空格</b>的路径，例如 <code class="inl">D:\adb</code>。路径带中文会导致命令找不到文件。</li>
+    <li>安装 nubia USB 驱动。装完后把手机连上电脑，打开「设备管理器」确认没有带黄色感叹号的未知设备。</li>
+    <li>在 <code class="inl">D:\adb</code> 文件夹空白处按住 Shift 右键，选择「在此处打开 PowerShell 窗口」，验证工具可用：</li>
+  </ol>
+  <pre><code>adb version
+fastboot --version</code></pre>
+</div>
+
+<div class="card">
+  <h2 class="plain"><span class="n">2</span>手机端设置</h2>
+  <p class="h2sub">大约 3 分钟</p>
+  <ol class="steps">
+    <li>设置 → 关于手机 → 连续点击「版本号」7 次，直到提示「您已处于开发者模式」。</li>
+    <li>返回 设置 → 开发者选项，打开 <b>USB 调试</b> 和 <b>OEM 解锁</b> 两个开关。</li>
+    <li>手机连上电脑，在命令行执行下面的命令。手机上会弹出「是否允许 USB 调试」，勾选「一律允许」后确定。</li>
+  </ol>
+  <pre><code>adb devices</code></pre>
+  <p>列表里出现一串序列号加 <code class="inl">device</code> 字样就说明连接正常。</p>
+  <div class="box w">
+    <p><b>如果找不到「OEM 解锁」这个开关。</b>两种可能：一是 nubia UI 需要先打开「USB 调试」并保持联网，该开关才会出现，重新进一次开发者选项看看；二是固件版本太旧没有暴露这个选项，那就需要先把系统升级到官方 Android 8.1 版本再继续。升级会清数据，所以这一步要在备份之后、解锁之前决定。</p>
+  </div>
+</div>
+
+<div class="card">
+  <h2 class="warn"><span class="n">3</span>解锁 Bootloader</h2>
+  <p class="h2sub">整个流程最关键的一步 · 执行后数据会被清空</p>
+  <p>努比亚骁龙机型有一个非标准的 fastboot 命令，型号必须<b>大写</b>并加上 <code class="inl">NUBIA_</code> 前缀。你的机器对应的是：</p>
+  <pre><code>fastboot oem nubia_unlock NUBIA_NX595J</code></pre>
+  <p>完整操作顺序：</p>
+  <pre><code>adb reboot bootloader
+fastboot devices
+fastboot oem nubia_unlock NUBIA_NX595J</code></pre>
+  <p>解锁成功时你会看到这样的回显，其中 <code class="inl">set state to 1 ok</code> 就是解锁标志：</p>
+  <pre><code>(bootloader) START update nubia fastboot unlock flag!!!
+(bootloader) set state to 1 ok!!!
+OKAY [  0.053s]
+Finished. Total time: 0.054s</code></pre>
+  <div class="box g">
+    <p><b>命令无反应或报错怎么办。</b>社区实测经验：回到开发者选项，把「OEM 解锁」开关反复关闭再打开几次，然后重新执行上面第三条命令。这是努比亚的一个已知怪癖，开关状态需要「触发」几次才会真正写入标志位。</p>
+  </div>
+  <p>如果反复尝试仍然无效，可以依次试这两条备用命令：</p>
+  <pre><code>fastboot flashing unlock
+fastboot oem unlock</code></pre>
+  <p>解锁成功后手机会自动重启并清空数据，<b>首次开机会特别慢（5 到 8 分钟）</b>，停在 logos 上是正常的。开机后屏幕可能出现解锁状态警告，属正常现象。如果超过 15 分钟还没进系统，按住电源键 10 秒强制重启，通常第二次就能进。</p>
+</div>
+
+<div class="card">
+  <h2 class="plain"><span class="n">4</span>刷入 TWRP</h2>
+  <p class="h2sub">把 recovery 换成第三方恢复环境</p>
+  <p>手机处于 fastboot 模式（屏幕上显示兔子图标）时执行，把文件名换成你实际下载的那个：</p>
+  <pre><code>fastboot flash recovery twrp_recovery_3.7.0_9_for_nx595j-new-partitions-20221116.img</code></pre>
+  <p>回显里出现 <code class="inl">OKAY</code> 表示写入成功，出现 <code class="inl">FAILED</code> 则通常是上一步没解锁成功。</p>
+  <div class="box r">
+    <p><b>这一步有个必踩的坑：刷完绝对不能直接重启进系统。</b>努比亚等机型的原厂系统在正常启动时会检测 recovery 分区，发现被改动就自动刷回原厂 recovery，你前面白干。刷完必须<b>立刻</b>进 recovery。</p>
+  </div>
+  <p>进 recovery 的正确方式 —— <b>fastboot 界面自带一个可用音量键操作的菜单</b>：</p>
+  <pre><code>Reboot system now              &lt;- 别选这个，会进系统、recovery 被覆盖
+Reboot to recovery mode        &lt;- 选这一项
+Reboot to emrg recovery mode
+Boot to edl
+Power off
+
+Press volume key to select above item, and press power key to confirm</code></pre>
+  <ul>
+    <li>按<b>音量键</b>把光标移到 <b>Reboot to recovery mode</b>，再按<b>电源键</b>确认</li>
+    <li>备用方式：关机后按住「音量上 + 电源键」</li>
+  </ul>
+  <div class="box k">
+    <p><b>为什么强调用菜单而不是命令。</b>这台设备的 bootloader 把「重启到 recovery」的相关命令全部裁掉了：<code class="inl">fastboot oem reboot-recovery</code> 和 <code class="inl">fastboot boot</code> 都返回 <code class="inl">unknown command</code>；最坑的是 <code class="inl">fastboot reboot recovery</code> 会返回 <code class="inl">OKAY</code> 却实际进了系统（假成功，recovery 直接被覆盖）。<b>只有菜单这一条路是通的。</b></p>
+  </div>
+  <p>看到 TWRP 的界面就说明成功了。</p>
+</div>
+
+<div class="card">
+  <h2 class="plain"><span class="n">5</span>刷入 Magisk</h2>
+  <p class="h2sub">这一步之后手机就有 root 了</p>
+  <ol class="steps">
+    <li>手机关机状态下按住「音量上 + 电源」进入 TWRP。</li>
+    <li>把 Magisk 的包推到手机的 <b>内存分区</b>（不是 /sdcard）：</li>
+  </ol>
+  <pre><code>adb push Magisk-v26.4.zip /tmp/</code></pre>
+  <div class="box k">
+    <p><b>为什么推到 /tmp 而不是 /sdcard。</b>这台机器 data 分区是加密的，TWRP 环境下读不到 /sdcard 的内容（列出来全是乱码文件名）。<code class="inl">/tmp</code> 是 TWRP 的内存文件系统，一定可写，用它最省事。</p>
+  </div>
+  <ol class="steps" style="counter-reset:s 2">
+    <li>在 TWRP 里执行安装命令：</li>
+  </ol>
+  <pre><code>adb shell "twrp install /tmp/Magisk-v26.4.zip"</code></pre>
+  <p>看到 <code class="inl">Patching ramdisk</code> → <code class="inl">Flashing new boot image</code> → <code class="inl">Done</code> 就是成功了。也可以直接在 TWRP 界面点 Install 手动选包。</p>
+  <ol class="steps" style="counter-reset:s 3">
+    <li>重启进系统：</li>
+  </ol>
+  <pre><code>adb shell "twrp reboot"</code></pre>
+  <div class="box w">
+    <p><b>如果 TWRP 提示输入密码或读不到 /sdcard。</b>说明 data 分区还处于加密状态。选择 Cancel 跳过密码，然后 Wipe → Format Data → 输入 <code class="inl">yes</code> 确认。解锁时数据已经清空了，这里没有额外损失。</p>
+    <p style="margin-top:10px">如果格式化后仍然传不进文件，改用 TWRP 的 Advanced → ADB Sideload，然后在电脑上执行 <code class="inl">adb sideload Magisk-v26.4.zip</code>。</p>
+  </div>
+</div>
+
+<div class="card">
+  <h2 class="ok"><span class="n">6</span>验证 root 是否生效</h2>
+  <p class="h2sub">几条命令确认结果</p>
+  <p>先装 Magisk 管理 App：</p>
+  <pre><code>adb install Magisk-v26.4.apk</code></pre>
+  <p>装好后打开 Magisk App，首页会显示已安装的版本号（如 26.4）—— 这是最直观的确认。</p>
+  <p>再用命令验证 root 权限：</p>
+  <pre><code>adb shell su -c id</code></pre>
+  <p>输出里出现 <code class="inl">uid=0(root)</code> 就成功了。</p>
+  <div class="box w">
+    <p><b>如果 su 命令卡住不动，那是正常的，不是故障。</b>它在等 Magisk App 弹出授权对话框 —— 在手机上点「允许」即可。想避免命令卡死，可以加超时：<code class="inl">adb shell "timeout 5 su -c id"</code>。</p>
+  </div>
+  <p>不依赖授权也能确认 root 装好了：</p>
+  <pre><code>adb shell "which su"                   <span class="cm"># 应输出 /sbin/su</span>
+adb shell "ls /sbin"                   <span class="cm"># 应看到 magisk magisk64 su resetprop 等</span>
+adb shell "pm list packages magisk"    <span class="cm"># 应输出 com.topjohnwu.magisk</span></code></pre>
+</div>
+
+<div class="card">
+  <h2 class="plain"><span class="n">?</span>常见问题排查</h2>
+  <p class="h2sub">按现象对号入座</p>
+  <table>
+    <tr><th>现象</th><th>原因</th><th>处理</th></tr>
+    <tr><td><code>FAILED (remote: Not allowed)</code></td><td>Bootloader 仍是锁定状态</td><td>回到阶段 3 重新解锁，注意型号前缀要大写</td></tr>
+    <tr><td><code>fastboot oem nubia_unlock</code> 无任何回显</td><td>OEM 解锁开关未实际生效</td><td>反复关闭再打开该开关数次后重试</td></tr>
+    <tr><td>刷完 recovery 重启后变回原厂恢复</td><td>系统启动时覆盖了 recovery</td><td>重刷，刷完直接进 recovery，不要正常启动</td></tr>
+    <tr><td>TWRP 里触摸没反应</td><td>TWRP 镜像与机型不完全匹配</td><td>换 3.7.0_13-FBE 版本再试</td></tr>
+    <tr><td>开机卡在 nubia 标志</td><td>dm-verity 完整性校验失败</td><td>进 TWRP 刷 Disable_Dm-Verity_ForceEncrypt 补丁，或重新格式化 data</td></tr>
+    <tr><td><code>su</code> 提示 permission denied</td><td>Magisk 未正确安装到 boot 分区</td><td>重进 TWRP，重新刷一遍 Magisk zip</td></tr>
+    <tr><td>电脑识别不到设备</td><td>驱动问题</td><td>重装 nubia USB 驱动，换一根数据线，换一个 USB 口（优先主板后置口）</td></tr>
+  </table>
+</div>
+
+<div class="card">
+  <h2 class="danger"><span class="n">!</span>万一变砖了</h2>
+  <p class="h2sub">按严重程度分两级处理</p>
+  <h3>还能进 fastboot 或 recovery（软砖）</h3>
+  <p>这是最好处理的情况。用电脑端的努比亚官方助手识别设备后走线刷恢复，识别不到就先重装驱动。也可以直接重新刷入官方 recovery 和 boot 镜像。</p>
+  <h3>完全黑屏、任何按键都没反应（硬砖）</h3>
+  <p>走高通 9008 底层模式，这条路几乎总能救回来：</p>
+  <ol class="steps">
+    <li>手机完全关机，按住「音量上键」不放，然后插上数据线连电脑。</li>
+    <li>打开设备管理器，出现 <b>Qualcomm HS-USB QDLoader 9008</b> 端口即成功进入。如果该端口带黄色感叹号，手动更新驱动指向高通驱动目录。</li>
+    <li>用工唯 QFIL 或努比亚线刷工具，加载官方固件包里的 <code class="inl">prog_firehose_ddr.elf</code> 及各分区镜像，开始刷写。</li>
+  </ol>
+  <div class="box r">
+    <p><b>固件包必须匹配 NX595J。</b>努比亚的型号命名很混乱，Z17、Z17 mini、Z17s 的固件包互不兼容，刷错轻则无限重启，重则彻底变黑砖。下载时确认标题里明确写着 NX595J 或 Z17s，而不是「努比亚通用」。</p>
+  </div>
+</div>
+
+<div class="foot">
+  <p><b>信息来源</b>（核实日期：2026 年 9 月 17 日）</p>
+  <ol>
+    <li>XDA 论坛讨论帖 Z17S (NX595J) Unlock Bootloader &amp; TWRP —— 提供 <code>fastboot oem nubia_unlock NUBIA_NX595J</code> 的实测回显与 OEM 开关反复触发的经验</li>
+    <li>开源项目 bootloader-unlock-wall-of-shame（ZTE / nubia 章节）—— 确认努比亚骁龙机型的解锁命令格式为 <code>fastboot oem nubia_unlock NUBIA_&lt;MODEL&gt;</code>，型号需大写加前缀</li>
+    <li>GitHub 仓库 Cyborg2017/android_device_nubia_nx595j-twrp —— Z17s 的 TWRP 3.7.0 镜像来源</li>
+    <li>LineageOS Wiki 的 NX563J（Z17）安装页 —— 佐证「刷完 recovery 不得直接重启进系统」这一通用约束</li>
+  </ol>
+  <p style="margin-top:14px">本手册为操作参考，刷机行为请自行评估并承担相应风险。所有命令执行前建议先读懂每一行的作用。</p>
+</div>
+
+</div>
+<script>
+document.querySelectorAll('pre').forEach(function(pre){
+  var btn=document.createElement('button');
+  btn.className='copy';btn.textContent='复制';
+  btn.addEventListener('click',function(){
+    var t=pre.querySelector('code').innerText;
+    navigator.clipboard.writeText(t).then(function(){
+      btn.textContent='已复制';
+      setTimeout(function(){btn.textContent='复制';},1500);
+    });
+  });
+  pre.appendChild(btn);
+});
+var KEY='nx595j-guide-checks';
+var saved={};
+try{saved=JSON.parse(localStorage.getItem(KEY)||'{}');}catch(e){}
+document.querySelectorAll('.check input').forEach(function(cb){
+  if(saved[cb.id]){cb.checked=true;}
+  cb.addEventListener('change',function(){
+    saved[cb.id]=cb.checked;
+    try{localStorage.setItem(KEY,JSON.stringify(saved));}catch(e){}
+  });
+});
+</script>
+</body>
+</html>
