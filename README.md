@@ -44,6 +44,26 @@ sha256sum 文件名
 
 ---
 
+### ★ 官方链接失效了怎么办 —— 离线包
+
+**上面所有工具与镜像的本体，都已存进本仓库的一个 release**，不再依赖第三方链接是否还活着：
+
+# **https://github.com/huntina6/nubia-z17s-root-guide/releases/tag/offline-tools-v1**
+
+| 文件 | 字节数 | 永久直链 |
+|---|---|---|
+| `platform-tools-latest-windows.zip` | 8,044,989 | [下载](https://github.com/huntina6/nubia-z17s-root-guide/releases/download/offline-tools-v1/platform-tools-latest-windows.zip) |
+| `platform-tools_r28.0.2-windows.zip` | 11,067,637 | [下载](https://github.com/huntina6/nubia-z17s-root-guide/releases/download/offline-tools-v1/platform-tools_r28.0.2-windows.zip) |
+| `usb_driver_r13-windows.zip` | 8,682,039 | [下载](https://github.com/huntina6/nubia-z17s-root-guide/releases/download/offline-tools-v1/usb_driver_r13-windows.zip) |
+| `twrp_recovery_3.7.0_9_for_nx595j-new-partitions-20221116.img` | 33,805,612 | [下载](https://github.com/huntina6/nubia-z17s-root-guide/releases/download/offline-tools-v1/twrp_recovery_3.7.0_9_for_nx595j-new-partitions-20221116.img) |
+| `Magisk-v26.4.apk` | 12,526,383 | [下载](https://github.com/huntina6/nubia-z17s-root-guide/releases/download/offline-tools-v1/Magisk-v26.4.apk) |
+
+各文件 SHA256 见下文分项说明，release 页面的说明正文里也完整列了一份。
+
+> ⚠️ **固件包（V112 / V111）没能收进离线包。** `NX595J_Z69_EN_VNG0N_V112.zip` 是 **2,376,008,975 字节（2.21 GiB）**，超过 GitHub release 单个附件 **2 GiB 的硬上限**，放不进去。这一项只能继续依赖努比亚官方服务器，下载后务必核对字节数是否等于 `2376008975`。
+
+---
+
 ### 1. Google platform-tools（adb + fastboot 工具包）
 
 **本次实际使用的版本（推荐）：**
