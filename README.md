@@ -58,8 +58,12 @@ sha256sum 文件名
 | `twrp_recovery_3.7.0_9_for_nx595j-new-partitions-20221116.img` | 33,805,612 | [下载](https://github.com/huntina6/nubia-z17s-root-guide/releases/download/offline-tools-v1/twrp_recovery_3.7.0_9_for_nx595j-new-partitions-20221116.img) |
 | `Magisk-v26.4.apk` | 12,526,383 | [下载](https://github.com/huntina6/nubia-z17s-root-guide/releases/download/offline-tools-v1/Magisk-v26.4.apk) |
 | `twrp_recovery_3.7.0_13_for_nx595j-fbe.img` | 39,068,972 | [下载](https://github.com/huntina6/nubia-z17s-root-guide/releases/download/offline-tools-v1/twrp_recovery_3.7.0_13_for_nx595j-fbe.img) |
-| `NX595J_Z69_EN_VNG0N_V112.zip.part1.rar` | 1,258,291,200 | [下载](https://github.com/huntina6/nubia-z17s-root-guide/releases/download/offline-tools-v1/NX595J_Z69_EN_VNG0N_V112.zip.part1.rar) |
-| `NX595J_Z69_EN_VNG0N_V112.zip.part2.rar` | 1,117,718,202 | [下载](https://github.com/huntina6/nubia-z17s-root-guide/releases/download/offline-tools-v1/NX595J_Z69_EN_VNG0N_V112.zip.part2.rar) |
+| `NX595J_Z69_EN_VNG0N_V112.zip.part1.rar` | 419,430,400 | [下载](https://github.com/huntina6/nubia-z17s-root-guide/releases/download/offline-tools-v1/NX595J_Z69_EN_VNG0N_V112.zip.part1.rar) |
+| `NX595J_Z69_EN_VNG0N_V112.zip.part2.rar` | 419,430,400 | [下载](https://github.com/huntina6/nubia-z17s-root-guide/releases/download/offline-tools-v1/NX595J_Z69_EN_VNG0N_V112.zip.part2.rar) |
+| `NX595J_Z69_EN_VNG0N_V112.zip.part3.rar` | 419,430,400 | [下载](https://github.com/huntina6/nubia-z17s-root-guide/releases/download/offline-tools-v1/NX595J_Z69_EN_VNG0N_V112.zip.part3.rar) |
+| `NX595J_Z69_EN_VNG0N_V112.zip.part4.rar` | 419,430,400 | [下载](https://github.com/huntina6/nubia-z17s-root-guide/releases/download/offline-tools-v1/NX595J_Z69_EN_VNG0N_V112.zip.part4.rar) |
+| `NX595J_Z69_EN_VNG0N_V112.zip.part5.rar` | 419,430,400 | [下载](https://github.com/huntina6/nubia-z17s-root-guide/releases/download/offline-tools-v1/NX595J_Z69_EN_VNG0N_V112.zip.part5.rar) |
+| `NX595J_Z69_EN_VNG0N_V112.zip.part6.rar` | 278,858,270 | [下载](https://github.com/huntina6/nubia-z17s-root-guide/releases/download/offline-tools-v1/NX595J_Z69_EN_VNG0N_V112.zip.part6.rar) |
 
 **全部文件的 SHA256：**
 
@@ -70,8 +74,12 @@ sha256sum 文件名
 1BADBC96BCF169D0DB89167D3520F5D78F9B21A427754DED937A47184C197010  twrp_recovery_3.7.0_9_for_nx595j-new-partitions-20221116.img
 A2818E8B0E6FC0C4467808996B0885F1B231BD4CF03A3D0D7416AA9C7BC0A410  twrp_recovery_3.7.0_13_for_nx595j-fbe.img
 543A96FE26C012D99BAF3A3AA5A97B80508D67CC641AF7C12CE9F7B226B2B889  Magisk-v26.4.apk
-F823A20E74666AF35ED43FFCC70E0ED0BB7BD4A198F3E929CA5CEADA41D79A6F  NX595J_Z69_EN_VNG0N_V112.zip.part1.rar
-0DB70C82AE37B52B291827ED29632D7A0CF4A391A868598BE4A6B41436666F0E  NX595J_Z69_EN_VNG0N_V112.zip.part2.rar
+9466E52435D30FFC5D2B4C0453437B949561A07881F3118ABFF4CFE9DACB02C5  NX595J_Z69_EN_VNG0N_V112.zip.part1.rar
+A955EC20A808B38D9D3FBBC532F40CB7E6E4F5DB856171FB7DA146BCD49809CB  NX595J_Z69_EN_VNG0N_V112.zip.part2.rar
+1CECE94E5DD967F958E65C35070FCAFB5DC08C0F7F44FF4A37F026B04948A10B  NX595J_Z69_EN_VNG0N_V112.zip.part3.rar
+C3C0E9A75190035F6259DC03CADCF6900596E6907F41E9C385CE41DF6815674A  NX595J_Z69_EN_VNG0N_V112.zip.part4.rar
+4A60A5DCC607300F7DE440C8AA8575D1DD7F62F7B9FFEAD35E2724F1E1C8ED5E  NX595J_Z69_EN_VNG0N_V112.zip.part5.rar
+6DC5B080105784F2B33F16359E22DDE9443B852ADA80D98313D34016B11EBB47  NX595J_Z69_EN_VNG0N_V112.zip.part6.rar
 ```
 
 **固件解压后**（`NX595J_Z69_EN_VNG0N_V112.zip`，2,376,008,975 字节）的 SHA256：
@@ -80,11 +88,16 @@ F823A20E74666AF35ED43FFCC70E0ED0BB7BD4A198F3E929CA5CEADA41D79A6F  NX595J_Z69_EN_
 F75E8CC068B5D7D2503B39E07E72BBD28A34375D6BD2DFBB7217CAB639F69058
 ```
 
-### 官方固件为什么是分卷的 —— 用法说明
+### 官方固件为什么切成了 6 卷 —— 用法说明
 
-固件原文件 **2,376,008,975 字节（2.21 GiB）**，**超过 GitHub 单个附件 2 GiB 的硬上限**，无法作为单个附件上传，所以按 **1200 MB** 切成两卷归档（RAR 存储模式，无压缩，不损失内容）。
+固件原文件 **2,376,008,975 字节（2.21 GiB）**，两个原因决定了它必须分卷：
 
-**用法：两卷都下齐，放在同一个文件夹里，解压任意一卷即可**得到完整的 zip：
+1. **超过 GitHub 单个附件 2 GiB 的硬上限**（2,147,483,648 字节），单文件根本传不上去
+2. **本机网络对单次上传请求有约 900 MB 的天花板** —— 实测把 2.2 GB 切成 2 卷（1200 MB + 1066 MB）后，两次上传都在发出约 900–970 MB 时被连接重置（curl exit 55）。切成 6 卷 × 约 400 MB 后全部通过
+
+所以最终方案是 **400 MB 一卷、共 6 卷**（RAR 存储模式，无压缩，不损失内容）。
+
+**用法：6 卷全部下齐，放进同一个文件夹，解压 `part1.rar` 即可**得到完整的 zip：
 
 - **图形界面**：用 WinRAR / 7-Zip / Bandizip 打开 `NX595J_Z69_EN_VNG0N_V112.zip.part1.rar` → 解压 → 得到 `NX595J_Z69_EN_VNG0N_V112.zip`
 - **命令行（Windows）**：`"C:\Program Files\WinRAR\rar.exe" x NX595J_Z69_EN_VNG0N_V112.zip.part1.rar`
@@ -230,7 +243,7 @@ F75E8CC068B5D7D2503B39E07E72BBD28A34375D6BD2DFBB7217CAB639F69058
 # 应等于 F75E8CC068B5D7D2503B39E07E72BBD28A34375D6BD2DFBB7217CAB639F69058
 ```
 
-> **官方链接失效时**，用本文档开头的[离线包](#-官方链接失效了怎么办--离线包) —— 该固件已按 1200 MB 切成两卷（`...V112.zip.part1.rar` / `...part2.rar`）归档在同一个 release 里，解压后同样要做上面这两项核对。
+> **官方链接失效时**，用本文档开头的[离线包](#-官方链接失效了怎么办--离线包) —— 该固件已按 400 MB 切成 6 卷（`...V112.zip.part1.rar` ~ `...part6.rar`）归档在同一个 release 里，6 卷全部下齐后解压 `part1.rar`，再按上面两项核对。
 
 ---
 
