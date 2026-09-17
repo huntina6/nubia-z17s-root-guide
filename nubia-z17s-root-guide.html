@@ -166,8 +166,12 @@ em.tag.no{background:var(--danger-soft);color:var(--danger);border-color:#f5d7d7
       <tr><td><code>usb_driver_r13-windows.zip</code></td><td>8,682,039</td><td><a href="https://github.com/huntina6/nubia-z17s-root-guide/releases/download/offline-tools-v1/usb_driver_r13-windows.zip">下载</a></td></tr>
       <tr><td><code>twrp_recovery_3.7.0_9_…-20221116.img</code></td><td>33,805,612</td><td><a href="https://github.com/huntina6/nubia-z17s-root-guide/releases/download/offline-tools-v1/twrp_recovery_3.7.0_9_for_nx595j-new-partitions-20221116.img">下载</a></td></tr>
       <tr><td><code>Magisk-v26.4.apk</code></td><td>12,526,383</td><td><a href="https://github.com/huntina6/nubia-z17s-root-guide/releases/download/offline-tools-v1/Magisk-v26.4.apk">下载</a></td></tr>
+      <tr><td><code>twrp_recovery_3.7.0_13_…-fbe.img</code></td><td>39,068,972</td><td><a href="https://github.com/huntina6/nubia-z17s-root-guide/releases/download/offline-tools-v1/twrp_recovery_3.7.0_13_for_nx595j-fbe.img">下载</a></td></tr>
+      <tr><td><code>NX595J_Z69_EN_VNG0N_V112.zip.part1.rar</code></td><td>1,258,291,200</td><td><a href="https://github.com/huntina6/nubia-z17s-root-guide/releases/download/offline-tools-v1/NX595J_Z69_EN_VNG0N_V112.zip.part1.rar">下载</a></td></tr>
+      <tr><td><code>NX595J_Z69_EN_VNG0N_V112.zip.part2.rar</code></td><td>1,117,718,202</td><td><a href="https://github.com/huntina6/nubia-z17s-root-guide/releases/download/offline-tools-v1/NX595J_Z69_EN_VNG0N_V112.zip.part2.rar">下载</a></td></tr>
     </table>
-    <p style="margin-top:10px">⚠️ <b>固件包 V112 / V111 没能收进去</b>：<code class="inl">NX595J_Z69_EN_VNG0N_V112.zip</code> 是 2,376,008,975 字节（2.21 GiB），<b>超过 GitHub release 单个附件 2 GiB 的硬上限</b>。这一项只能继续依赖努比亚官方服务器，下完核对字节数是否等于 <code class="inl">2376008975</code>。</p>
+    <p style="margin-top:10px"><b>官方固件为什么是两卷。</b>固件原文件 <b>2,376,008,975 字节（2.21 GiB）</b>，超过 GitHub 单个附件 <b>2 GiB 的硬上限</b>，所以按 1200 MB 切成两卷（RAR 存储模式，无压缩）。<b>两卷都下齐放进同一文件夹，解压 <code class="inl">part1.rar</code> 即可</b>（WinRAR / 7-Zip 都行），得到 <code class="inl">NX595J_Z69_EN_VNG0N_V112.zip</code>。</p>
+    <p style="margin-top:8px">解出来的文件必须<b>正好 2,376,008,975 字节</b>，SHA256 为 <code class="inl">F75E8CC068B5D7D2503B39E07E72BBD28A34375D6BD2DFBB7217CAB639F69058</code> —— 两项都对上才是完好的官方固件。</p>
   </div>
 
   <h3>1 · Google platform-tools（adb + fastboot）<em class="tag">本次使用</em></h3>
@@ -229,7 +233,7 @@ em.tag.no{background:var(--danger-soft);color:var(--danger);border-color:#f5d7d7
   <p style="font-size:13.5px;color:var(--muted)">官方 ROM 服务器根地址 <a href="http://rom.download.nubia.com/">rom.download.nubia.com</a> —— 根路径返回 <b>403</b>，说明服务器在运营、只是禁止列目录。</p>
   <div class="dlitem">
     <div class="t"><a href="http://rom.download.nubia.com/Europe&Asia/Z17S/NX595J_Z69_EN_VNG0N_V112.zip">NX595J_Z69_EN_VNG0N_V112.zip</a><em class="tag">EN 国际版 · 建议</em></div>
-    <span class="meta">2,376,008,975 字节（2265.94 MB）<br>下载后核对：文件字节数应恰好等于 2376008975</span>
+    <span class="meta">2,376,008,975 字节（2265.94 MB）<br>SHA256 F75E8CC068B5D7D2503B39E07E72BBD28A34375D6BD2DFBB7217CAB639F69058<br>下载后核对：字节数 = 2376008975 且 SHA256 相符<br>链接失效时用本节开头的离线包（两卷 RAR，解压后同样核对）</span>
   </div>
   <div class="dlitem">
     <div class="t"><a href="http://rom.download.nubia.com/Europe&Asia/Z17S/NX595J_Z69_EN_VNG0N_V111.zip">NX595J_Z69_EN_VNG0N_V111.zip</a><em class="tag alt">备选</em></div>
